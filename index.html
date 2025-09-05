@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Szymon Nyderek — Portfolio</title>
+  <meta name="description" content="Portfolio Szymona Nyderka: projekty mechatroniczne, robotyka, STM32, PLC, 3D printing." />
+  <meta name="theme-color" content="#0b0f17" />
+  <!-- Open Graph / SEO -->
+  <meta property="og:title" content="Szymon Nyderek — Portfolio" />
+  <meta property="og:description" content="Projekty mechatroniczne, robotyka, STM32, PLC, 3D printing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://szymonnyderek.pl" />
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --bg-soft: #101626;
+      --card: #0f1626;
+      --muted: #a2b0c3;
+      --text: #e8eef7;
+      --accent: #6ae3ff;
+      --accent-2: #8b5cf6;
+      --ring: #26324d;
+      --good: #2dd4bf;
+      --warn: #f59e0b;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Noto Sans, Arial, "Apple Color Emoji", "Segoe UI Emoji"; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* Layout */
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header {
+      position: sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background: color-mix(in srgb, var(--bg) 80%, transparent);
+      border-bottom: 1px solid var(--ring);
+    }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+    .nav a.logo { font-weight:700; letter-spacing:0.3px; }
+    .nav .links { display:flex; gap:18px; flex-wrap:wrap; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--ring); border-radius:14px; background:linear-gradient(180deg, #111827, #0c1220); color:var(--text); text-decoration:none; box-shadow: 0 10px 24px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.03); }
+    .btn:hover { border-color: color-mix(in srgb, var(--accent) 50%, var(--ring)); box-shadow: 0 14px 30px rgba(0,0,0,.35); }
+
+    /* Hero */
+    .hero { padding: 64px 0 36px; display:grid; grid-template-columns: 1.2fr 1fr; gap: 28px; align-items:center; }
+    .hero h1 { font-size: clamp(28px, 3.4vw, 44px); margin: 0 0 10px; line-height:1.12; }
+    .hero p { color: var(--muted); margin: 0 0 20px; }
+    .tags { display:flex; flex-wrap:wrap; gap:10px; margin: 18px 0 26px; }
+    .tag { padding:6px 10px; border:1px solid var(--ring); border-radius:999px; font-size:14px; background: #0f1a2e; }
+    .cta { display:flex; gap:12px; flex-wrap:wrap; }
+    .card-spotlight { position:relative; padding:22px; border-radius:18px; background: radial-gradient(1200px 1200px at 0 -10%, rgba(107, 233, 255, .08), transparent 40%), var(--card); border:1px solid var(--ring); }
+
+    /* Sections */
+    section { padding: 34px 0; }
+    .section-title { font-size: 20px; letter-spacing:.3px; margin: 0 0 16px; color: #cbd5e1; }
+    .grid { display:grid; gap:16px; }
+    .grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .card { background: var(--card); border:1px solid var(--ring); border-radius:18px; padding:18px; min-height: 120px; }
+    .card h3 { margin: 0 0 10px; font-size: 18px; }
+    .muted { color: var(--muted); font-size: 14px; }
+    .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#0f1a2e; border:1px solid var(--ring); font-size: 13px; margin-right:6px; margin-bottom:6px; }
+
+    .timeline { display:grid; gap:12px; }
+    .timeline .row { display:flex; gap:14px; }
+    .timeline .dot { width:10px; height:10px; border-radius:50%; background: var(--accent); margin-top: 7px; box-shadow: 0 0 0 4px rgba(106, 227, 255, 0.08); }
+    .timeline .content { background: var(--card); border:1px solid var(--ring); border-radius:14px; padding:12px 14px; flex: 1; }
+    .timeline h4 { margin:0 0 6px; font-size: 16px; }
+
+    footer { border-top:1px solid var(--ring); padding: 26px 0 40px; color:var(--muted); font-size:14px; }
+
+    /* Responsive */
+    @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+    @media (max-width: 700px) { .grid.cols-3 { grid-template-columns: 1fr; } .grid.cols-2 { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">Szymon Nyderek</a>
+      <nav class="links">
+        <a href="#projekty">Projekty</a>
+        <a href="#umiejetnosci">Umiejętności</a>
+        <a href="#kursy">Kursy</a>
+        <a href="#osiagniecia">Osiągnięcia</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <h1>Cześć! Jestem Szymon — uczeń 5 klasy technikum mechatronicznego.</h1>
+        <p>Buduję roboty Line Follower, projektuję elektronikę i tworzę oprogramowanie na STM32 oraz PLC. Lubię łączyć druk 3D, mechanikę i kod.</p>
+        <div class="tags">
+          <span class="tag">Mechatronika</span>
+          <span class="tag">STM32 / HAL / FreeRTOS</span>
+          <span class="tag">PLC / TIA Portal</span>
+          <span class="tag">Druk 3D</span>
+          <span class="tag">PCB / KiCad</span>
+        </div>
+        <div class="cta">
+          <a class="btn" href="mailto:S.NYDEREK@proton.me">📧 Napisz do mnie</a>
+          <a class="btn" href="https://github.com/NYDEREK" target="_blank" rel="noopener">💻 GitHub</a>
+          <!-- Jeśli chcesz publicznie wyświetlać telefon, odkomentuj poniższą linię -->
+          <!-- <a class="btn" href="tel:+48725213190">📱 +48 725 213 190</a> -->
+        </div>
+      </div>
+      <div class="card-spotlight">
+        <div class="muted" style="margin-bottom:10px;">Szybkie fakty</div>
+        <div class="grid cols-2">
+          <div class="card">
+            <h3>Szkoła</h3>
+            <div class="muted">Technik Mechatronik (2021–2026, w toku)</div>
+          </div>
+          <div class="card">
+            <h3>Nagrody</h3>
+            <div class="muted">EastRobo '25 — II msc, RoboticArena '25 — III msc</div>
+          </div>
+          <div class="card">
+            <h3>Staże</h3>
+            <div class="muted">Praktykant, Danone (PLC, 3D CAD)</div>
+          </div>
+          <div class="card">
+            <h3>Cel</h3>
+            <div class="muted">Roboty mobilne • sterowanie • embedded</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS (placeholder – dodaj repo/wpisy w przyszłości) -->
+    <section id="projekty">
+      <h2 class="section-title">Wybrane projekty</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Line Follower Light</h3>
+          <p class="muted">Robot klasy LineFollower: szybka platforma, algorytmy PID/LQR, autorska elektronika.</p>
+          <p><a href="#">Dodaj link do repo / filmu →</a></p>
+        </article>
+        <article class="card">
+          <h3>Airless TPU Ball</h3>
+          <p class="muted">Piłka airless drukowana w TPU 95A HF (Ø 7 cm) — projekt i testy materiałowe.</p>
+          <p><a href="#">Dodaj link do opisu / repo →</a></p>
+        </article>
+        <article class="card">
+          <h3>Mapa trasy robota</h3>
+          <p class="muted">Rejestracja trasy w chmurze punktów + optymalizacja w Pythonie; IMU dla lepszej odometrii.</p>
+          <p><a href="#">Dodaj link do repo / filmu →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="umiejetnosci">
+      <h2 class="section-title">Umiejętności</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>Elektronika &amp; PCB</h3>
+          <p class="muted">Projektowanie PCB w KiCad, lutowanie SMD/THT.</p>
+          <div>
+            <span class="pill">KiCad</span>
+            <span class="pill">SMD/THT</span>
+            <span class="pill">Zasilanie/EMI</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Programowanie</h3>
+          <p class="muted">STM32 (HAL/FreeRTOS), Python, C++, PLC (TIA Portal).</p>
+          <div>
+            <span class="pill">STM32CubeIDE</span>
+            <span class="pill">FreeRTOS</span>
+            <span class="pill">Python</span>
+            <span class="pill">C++</span>
+            <span class="pill">TIA Portal</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Mechanika &amp; 3D</h3>
+          <p class="muted">Modelowanie 3D, druk 3D w PLA/PETG/ABS/TPU.</p>
+          <div>
+            <span class="pill">Fusion 360</span>
+            <span class="pill">Druk 3D</span>
+            <span class="pill">TPU/PLA/PETG/ABS</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="kursy">
+      <h2 class="section-title">Kursy i uprawnienia</h2>
+      <div class="timeline">
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>Robotics 101 — algorytmy sterowania (PID, LQR, Kalman, DCM)</h4>
+            <div class="muted">Sierpień 2025</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>FreeRTOS w STM32</h4>
+            <div class="muted">Marzec 2024</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>STM32 dla początkujących (HAL)</h4>
+            <div class="muted">Sierpień 2024</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>AutoCAD — kurs zaawansowany</h4>
+            <div class="muted">Kwiecień 2022</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>Programowanie obrabiarek CNC (G-code)</h4>
+            <div class="muted">Czerwiec 2022</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>SEP do 1&nbsp;kV</h4>
+            <div class="muted">Ważne do sierpnia 2030</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section id="osiagniecia">
+      <h2 class="section-title">Osiągnięcia</h2>
+      <div class="grid cols-3">
+        <div class="card">
+          <h3>EastRobo — II miejsce</h3>
+          <p class="muted">LineFollower Light • Kwiecień 2025</p>
+        </div>
+        <div class="card">
+          <h3>RoboticArena — III miejsce</h3>
+          <p class="muted">LineFollower Light • Kwiecień 2025</p>
+        </div>
+        <div class="card">
+          <h3>RoboticTournament — III miejsce</h3>
+          <p class="muted">LineFollower Light • Kwiecień 2025</p>
+        </div>
+        <div class="card">
+          <h3>Roztoczańska Liga Robotów — II miejsce</h3>
+          <p class="muted">LineFollower Light • Kwiecień 2025</p>
+        </div>
+        <div class="card">
+          <h3>RoboticArena — III miejsce</h3>
+          <p class="muted">LineFollower Light • Kwiecień 2023</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE & EDUCATION -->
+    <section>
+      <h2 class="section-title">Doświadczenie i edukacja</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Praktykant — Danone sp. z o.o.</h3>
+          <p class="muted">Programowanie sterowników PLC, projektowanie części 3D do maszyn.</p>
+          <p class="muted">Lipiec 2025</p>
+        </div>
+        <div class="card">
+          <h3>Technik Mechatronik — PCKTiB Oświęcim</h3>
+          <p class="muted">Wrzesień 2021 – Kwiecień 2026 (w toku). Egzamin klasyfikacyjny K1 ELM.03.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="kontakt">
+      <h2 class="section-title">Kontakt</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>Mail</h3><p><a href="mailto:S.NYDEREK@proton.me">S.NYDEREK@proton.me</a></p></div>
+        <div class="card"><h3>GitHub</h3><p><a href="https://github.com/NYDEREK" target="_blank" rel="noopener">github.com/NYDEREK</a></p></div>
+        <div class="card"><h3>Telefon</h3><p class="muted">(opcjonalnie) <code>+48 725 213 190</code></p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © <span id="y"></span> Szymon Nyderek — szymonnyderek.pl
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
