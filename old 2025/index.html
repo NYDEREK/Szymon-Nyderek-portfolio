@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Szymon Nyderek — Portfolio</title>
+  <meta name="description" content="Portfolio of Szymon Nyderek: mechatronics projects, robotics, STM32, PLC, 3D printing." />
+  <meta name="theme-color" content="#0b0f17" />
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card: #0f1626;
+      --muted: #a2b0c3;
+      --text: #e8eef7;
+      --accent: #6ae3ff;
+      --ring: #26324d;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin:0; padding:0; background:var(--bg); color:var(--text); font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, "Helvetica Neue", Noto Sans, Arial; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .container { width: min(1100px, 92vw); margin: 0 auto; }
+    header { position: sticky; top:0; background: rgba(11,15,23,0.9); backdrop-filter: blur(10px); border-bottom: 1px solid var(--ring); z-index:50; }
+    .nav { display:flex; align-items:center; justify-content:space-between; padding: 14px 0; }
+    .nav .links { display:flex; gap:18px; }
+    .btn { display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border:1px solid var(--ring); border-radius:14px; background:#111827; color:var(--text); text-decoration:none; }
+    .hero { padding:64px 0; display:grid; grid-template-columns:1.2fr 1fr; gap:28px; }
+    .hero h1 { font-size:clamp(28px,3.4vw,44px); margin:0 0 10px; }
+    .tags { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0; }
+    .tag { padding:6px 10px; border:1px solid var(--ring); border-radius:999px; font-size:14px; background:#0f1a2e; }
+    section { padding:34px 0; }
+    .section-title { font-size:20px; margin:0 0 16px; color:#cbd5e1; }
+    .grid { display:grid; gap:16px; }
+    .grid.cols-3 { grid-template-columns:repeat(3,1fr); }
+    .grid.cols-2 { grid-template-columns:repeat(2,1fr); }
+    .card { background:var(--card); border:1px solid var(--ring); border-radius:18px; padding:18px; }
+    .card h3 { margin:0 0 10px; font-size:18px; }
+    .muted { color:var(--muted); font-size:14px; }
+    .gallery { display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:20px; }
+    .gallery-item { border-radius:14px; overflow:hidden; border:1px solid var(--ring); background:#0f1626; }
+    .gallery-item img { width:100%; display:block; }
+    .gallery-item h3 { margin:10px; font-size:16px; }
+    .gallery-item p { margin:0 10px 12px; font-size:14px; color:var(--muted); }
+    .timeline { display:grid; gap:12px; }
+    .timeline .row { display:flex; gap:14px; }
+    .timeline .dot { width:10px; height:10px; border-radius:50%; background: var(--accent); margin-top: 7px; box-shadow: 0 0 0 4px rgba(106, 227, 255, 0.08); }
+    .timeline .content { background: var(--card); border:1px solid var(--ring); border-radius:14px; padding:12px 14px; flex: 1; }
+    .timeline h4 { margin:0 0 6px; font-size: 16px; }
+    footer { border-top:1px solid var(--ring); padding:26px 0 40px; color:var(--muted); font-size:14px; }
+    @media(max-width:900px){ .hero{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#">Szymon Nyderek</a>
+      <nav class="links">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#courses">Courses</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <h1>Hello! I’m Szymon — a 5th-year mechatronics technical school student.</h1>
+        <p>I design and build robots, electronics and embedded software for STM32 and PLCs. I enjoy combining 3D printing, mechanics and code.</p>
+        <div class="tags">
+          <span class="tag">Mechatronics</span>
+          <span class="tag">STM32 / HAL / FreeRTOS</span>
+          <span class="tag">PLC / TIA Portal</span>
+          <span class="tag">3D Printing</span>
+          <span class="tag">PCB / KiCad</span>
+        </div>
+        <div class="cta">
+          <a class="btn" href="mailto:S.NYDEREK@proton.me">📧 Email me</a>
+          <a class="btn" href="https://github.com/NYDEREK" target="_blank">💻 GitHub</a>
+  	  <a class="btn" href="https://www.youtube.com/@nyder1331" target="_blank">🎥 YouTube</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section id="gallery">
+      <h2 class="section-title">Project gallery</h2>
+      <div class="gallery">
+        <div class="gallery-item">
+          <img src="Gruzik3.0.jpg" alt="Gruzik 3.0 robot" />
+          <h3>Gruzik 3.0</h3>
+          <p>Advanced STM32 based line-following robot with route optimization.</p>
+ 	  <p><a class="glow-link" href="https://github.com/NYDEREK/LineFollower_GRUZIK3.0" target="_blank">See on Github →</a><p>
+
+        </div>
+        <div class="gallery-item">
+          <img src="Starglider.png" alt="Straglider flight computer" />
+          <h3>Straglider</h3>
+          <p>STM32 based flight computer with 2x IMU, Up to 3x Eniviroment sensors , SD-Card , USB-C</p>
+	  <p><a class="glow-link" href="https://github.com/NYDEREK/STARGLIDER" target="_blank">See on Github →</a><p>
+
+        </div>
+        <div class="gallery-item">
+          <img src="makerworldcar.png" alt="MakerWorld projects" />
+          <h3>MakerWorld projects</h3>
+          <p>3D printing models shared with the community on MakerWorld.</p>
+	  <p><a class="glow-link" href="https://makerworld.com/en/@NYDER" target="_blank">See on MakerWorld →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses">
+      <h2 class="section-title">Courses &amp; certificates</h2>
+      <div class="timeline">
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>Robotics 101 — control algorithms (PID, LQR, Kalman, DCM)</h4>
+            <div class="muted">August 2025</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>FreeRTOS on STM32</h4>
+            <div class="muted">March 2024</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>STM32 for beginners (HAL)</h4>
+            <div class="muted">August 2024</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>AutoCAD — advanced course</h4>
+            <div class="muted">April 2022</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>CNC programming (G-code)</h4>
+            <div class="muted">June 2022</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>Electrical certificate (SEP) up to 1 kV</h4>
+            <div class="muted">Valid until August 2030</div>
+          </div>
+        </div>
+ 	<div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>ROS2 in Python & C++</h4>
+            <div class="muted">February 2026</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title">Experience &amp; education</h2>
+      <div class="grid cols-2">
+        <div class="card">
+          <h3>Intern — Danone</h3>
+          <p class="muted">PLC programming, 3D CAD part design for machines.</p>
+          <p class="muted">march 2024</p>
+        </div>
+        <div class="card">
+          <h3>Technician in Mechatronics — PCKTiB Oświęcim</h3>
+          <p class="muted">September 2021 – April 2026 (ongoing). Vocational exams K1 ELM.03.</p>
+        </div>
+      </div>
+    </section>
+<!-- Awards -->
+    <section id="courses">
+      <h2 class="section-title">Awards</h2>
+      <div class="timeline">
+      <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>🥇I place on international competition RoboComp 2025</h4>
+            <div class="muted">October 2025</div>
+          </div>
+        </div>
+	<div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>🥇I place on international competition XChallange 2025</h4>
+            <div class="muted">November 2025</div>
+          </div>
+        </div>
+	<div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>🥇🥈🥉 places on national competition Roztoczańska Liga robotów 2025</h4>
+            <div class="muted">November 2025</div>
+          </div>
+        </div>	
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>🥉III place on international competition RoboticArena 2025</h4>
+            <div class="muted">April 2025</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>🥈II place on international competition EastRobo 2025</h4>
+            <div class="muted">April 2025</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>🥉III place on international competition RoboticTournament 2025</h4>
+            <div class="muted">April 2025</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>🥈II place on competition Roztoczańska Liga robotów 2025</h4>
+            <div class="muted">April 2025</div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="dot"></div>
+          <div class="content">
+            <h4>🥉III place on international competition RoboticArena 2023</h4>
+            <div class="muted">April 2023</div>
+          </div>
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <div class="grid cols-3">
+        <div class="card"><h3>Email</h3><p><a href="mailto:S.NYDEREK@proton.me">S.NYDEREK@proton.me</a></p></div>
+        <div class="card"><h3>GitHub</h3><p><a href="https://github.com/NYDEREK" target="_blank">github.com/NYDEREK</a></p></div>
+        <div class="card"><h3>Phone</h3><p class="muted"> Tel: <code>+48 725 213 190</code></p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Szymon Nyderek — szymonnyderek.pl</div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
